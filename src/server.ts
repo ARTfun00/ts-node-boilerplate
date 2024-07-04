@@ -15,6 +15,7 @@ function serverError(error: NodeJS.ErrnoException): void {
 }
 
 function serverListening(): void {
+	// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 	const addressInfo: AddressInfo = <AddressInfo>server.address();
 	logger.info(
 		`Listening on ${addressInfo.address}:${process.env.PORT || 8080}`,

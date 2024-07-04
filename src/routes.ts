@@ -1,6 +1,6 @@
+import { RouteDefinition } from './types/RouteDefinition';
 import { Router } from 'express';
 import SystemStatusController from './components/system-status/SystemStatusController';
-import { RouteDefinition } from './types/RouteDefinition';
 import logger from './lib/logger';
 
 function registerControllerRoutes(routes: RouteDefinition[]): Router {

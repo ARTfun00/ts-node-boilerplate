@@ -1,23 +1,25 @@
-import { NextFunction, Request, Response } from 'express';
 import * as os from 'os';
 import * as process from 'process';
-import { StatusCodes } from 'http-status-codes';
-import ApiError from '../../abstractions/ApiError';
-import BaseController from '../BaseController';
+
 import {
-	IServerTimeResponse,
-	IResourceUsageResponse,
 	IProcessInfoResponse,
+	IResourceUsageResponse,
+	IServerTimeResponse,
 	ISystemInfoResponse,
 } from './SystemStatusTypes';
+import { NextFunction, Request, Response } from 'express';
+
+import ApiError from '../../abstractions/ApiError';
+import BaseController from '../BaseController';
 import { RouteDefinition } from '../../types/RouteDefinition';
+import { StatusCodes } from 'http-status-codes';
 
 /**
  * Status controller
  */
 export default class SystemStatusController extends BaseController {
 	// base path
-	public basePath: string = 'system';
+	public basePath = 'system';
 
 	/**
 	 *
@@ -27,27 +29,27 @@ export default class SystemStatusController extends BaseController {
 			{
 				path: '/info',
 				method: 'get',
-				handler: this.getSystemInfo.bind(this),
+				handler: this.getSystemInfo,
 			},
 			{
 				path: '/time',
 				method: 'get',
-				handler: this.getServerTime.bind(this),
+				handler: this.getServerTime,
 			},
 			{
 				path: '/usage',
 				method: 'get',
-				handler: this.getResourceUsage.bind(this),
+				handler: this.getResourceUsage,
 			},
 			{
 				path: '/process',
 				method: 'get',
-				handler: this.getProcessInfo.bind(this),
+				handler: this.getProcessInfo,
 			},
 			{
 				path: '/error',
 				method: 'get',
-				handler: this.getError.bind(this),
+				handler: this.getError,
 			},
 			// These are the examples added here to follow if we need to create a different type of HTTP method.
 			{ path: '/', method: 'post', handler: this.getError.bind(this) },

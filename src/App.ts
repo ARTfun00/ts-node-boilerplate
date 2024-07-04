@@ -1,12 +1,13 @@
+import 'dotenv/config';
+
+import addErrorHandler from './middleware/error-handler';
 import cors from 'cors';
 import express from 'express';
-import http from 'http';
 import helmet from 'helmet';
-import 'dotenv/config';
-import swaggerUi from 'swagger-ui-express';
-import swaggerDocument from '../swagger.json';
+import http from 'http';
 import registerRoutes from './routes';
-import addErrorHandler from './middleware/error-handler';
+import swaggerDocument from '../swagger.json';
+import swaggerUi from 'swagger-ui-express';
 
 export default class App {
 	public express: express.Application;
@@ -68,6 +69,7 @@ export default class App {
 	private parseRequestHeader(
 		req: express.Request,
 		res: express.Response,
+		// eslint-disable-next-line @typescript-eslint/ban-types
 		next: Function,
 	): void {
 		// parse request header
@@ -79,7 +81,7 @@ export default class App {
 		request: express.Request,
 		response: express.Response,
 	): void {
-		response.json({ message: 'base path' });
+		response.json({ message: 'Success! Base path route.' });
 	}
 
 	private setupSwaggerDocs(): void {

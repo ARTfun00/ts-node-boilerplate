@@ -7,15 +7,22 @@
     },
     "host": "",
     "basePath": "",
-    "tags": [{
-        "name": "node-boilerplate",
-        "description": "Node Typescript Boilerplate"
-    }],
-    "schemes": ["http", "https"],
+    "tags": [
+        {
+            "name": "node-boilerplate",
+            "description": "Node Typescript Boilerplate"
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
     "paths": {
-        "/system/info": {
+        "/v1/system/info": {
             "get": {
-                "tags": ["node-boilerplate"],
+                "tags": [
+                    "node-boilerplate"
+                ],
                 "summary": "get system status",
                 "description": "",
                 "responses": {
@@ -29,9 +36,11 @@
                 "security": []
             }
         },
-        "/system/time": {
+        "/v1/system/time": {
             "get": {
-                "tags": ["node-boilerplate"],
+                "tags": [
+                    "node-boilerplate"
+                ],
                 "summary": "get server time",
                 "description": "",
                 "responses": {
@@ -45,9 +54,11 @@
                 "security": []
             }
         },
-        "/system/usage": {
+        "/v1/system/usage": {
             "get": {
-                "tags": ["node-boilerplate"],
+                "tags": [
+                    "node-boilerplate"
+                ],
                 "summary": "get server usage",
                 "description": "",
                 "responses": {
@@ -61,9 +72,11 @@
                 "security": []
             }
         },
-        "/system/process": {
+        "/v1/system/process": {
             "get": {
-                "tags": ["node-boilerplate"],
+                "tags": [
+                    "node-boilerplate"
+                ],
                 "summary": "get server process",
                 "description": "",
                 "responses": {
@@ -82,8 +95,7 @@
     "definitions": {
         "ApiResponse": {
             "type": "object",
-            "properties": {
-            }
+            "properties": {}
         }
     },
     "externalDocs": {

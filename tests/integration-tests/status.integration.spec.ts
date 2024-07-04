@@ -1,8 +1,9 @@
 import 'jest';
+
+import IntegrationHelpers from '../helpers/Integration-helpers';
+import { StatusCodes } from 'http-status-codes';
 import express from 'express';
 import request from 'supertest';
-import { StatusCodes } from 'http-status-codes';
-import IntegrationHelpers from '../helpers/Integration-helpers';
 
 describe('status integration tests', () => {
 	let app: express.Application;
@@ -10,7 +11,8 @@ describe('status integration tests', () => {
 		process.env.APPLY_ENCRYPTION && process.env.SECRET_KEY
 			? 'text/html; charset=utf-8'
 			: 'application/json; charset=utf-8';
-	let basePath: string = '/v1/system';
+	// eslint-disable-next-line @typescript-eslint/no-inferrable-types
+	const basePath: string = '/v1/system';
 
 	beforeAll(async () => {
 		app = await IntegrationHelpers.getApp();
